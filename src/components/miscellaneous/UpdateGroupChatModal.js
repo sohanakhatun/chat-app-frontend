@@ -45,7 +45,9 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
           authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/user?search=${search}`, config);
+      const { data } = await axios.get(`/user?search=${search}`,  {headers: {
+        authorization: `Bearer ${user.token}`,
+    }});
       console.log(data);
       setLoading(false);
       setSearchResult(data);
@@ -79,7 +81,11 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
           chatId: selectedChat._id,
           chatName: groupChatName,
         },
-        config
+         {
+           headers: {
+        authorization: `Bearer ${user.token}`,
+    }
+         }
       );
 
       console.log(data._id);
@@ -137,7 +143,11 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
           chatId: selectedChat._id,
           userId: userToBeAdded._id,
         },
-        config
+         {
+           headers: {
+        authorization: `Bearer ${user.token}`,
+    }
+         }
       );
 
       setSelectedChat(data);
@@ -185,7 +195,11 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
           chatId: selectedChat._id,
           userId: userTobeRemoved._id,
         },
-        config
+                 {
+           headers: {
+        authorization: `Bearer ${user.token}`,
+    }
+         }
       );
 
       userTobeRemoved._id === user._id
