@@ -27,7 +27,7 @@ const MyChats = ({ fetchAgain }) => {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          authorization: `Bearer ${user.token}`,
         },
       };
 
