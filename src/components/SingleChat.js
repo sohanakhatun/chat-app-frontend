@@ -58,7 +58,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
       const { data } = await axios.get(
         `/message/${selectedChat._id}`,
-        config
+                 {
+           headers: {
+        authorization: `Bearer ${user.token}`,
+    }
+         }
       );
       setMessages(data);
       setLoading(false);
@@ -93,7 +97,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             content: newMessage,
             chatId: selectedChat,
           },
-          config
+                   {
+           headers: {
+        authorization: `Bearer ${user.token}`,
+    }
+         }
         );
         socket.emit("new message", data);
         setMessages([...messages, data]);
