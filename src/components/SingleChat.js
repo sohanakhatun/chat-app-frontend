@@ -21,7 +21,7 @@ import animationData from "./animations/typing.json";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/chatProvider";
-const ENDPOINT = "https://chat-app-api-lgtf.onrender.com"; 
+const ENDPOINT = "https://chat-app-api-u5ht.onrender.com/"; 
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
